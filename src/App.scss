@@ -1,0 +1,83 @@
+@import './sass/variables.scss';
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url('./assets/fonts/ProximaNova_Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('./assets/fonts/ProximaNova_Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Proxima Nova Semibold';
+  src: url('./assets/fonts/ProximaNova_Semibold.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: 'Proxima Nova Regular', sans-serif;
+}
+
+.container {
+  min-width: 1280px;
+  height: 630px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $gray-light;
+  .items-list {
+    list-style: none;
+    display: flex;
+  }
+  .aside-block {
+    width: 308px;
+    height: 380px;
+    padding: 30px;
+    background-color: $white;
+    &__checkboxes-caption {
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .checkboxes-block {
+      display: flex;
+      color: #9b9b9b;
+      &__left-col {
+        list-style: none;
+        .checkboxes-block__item:last-child {
+          margin-top: 19px;
+        }
+      }
+      &__right-col {
+        list-style: none;
+        margin-left: 90px;
+        .checkboxes-block__item:nth-child(4) {
+          label {
+            align-items: flex-start;
+            .checkbox {
+              margin-top: 3px;
+            }
+          }
+        }
+      }
+      &__item {
+        padding: 5px 5px 5px 0;
+      }
+    }
+  }
+}

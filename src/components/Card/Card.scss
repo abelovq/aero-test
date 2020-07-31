@@ -1,0 +1,75 @@
+@import '../../sass/variables.scss';
+
+.card-item {
+  width: 308px;
+  height: 590px;
+  background-color: $white;
+  padding: 20px 19px 31px 22.9px;
+  margin-right: 10px;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__number {
+    font-size: 10px;
+    opacity: 0.4;
+  }
+  &__img {
+    text-align: center;
+    margin: 40px 0 30px 0;
+  }
+  &__info {
+    margin-bottom: 12px;
+    .card-item__text {
+      display: inline-block;
+      &--color {
+        margin-left: 5px;
+        font-size: 13px;
+        color: #32ca00;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 17px;
+    color: #262626;
+    width: 222px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  &__about {
+    margin-bottom: 20px;
+    font-family: 'Proxima Nova Light';
+    font-size: 12px;
+    line-height: 22px;
+    .about-list {
+      list-style: none;
+      &__name {
+        color: #9b9b9b;
+        margin-right: 5px;
+      }
+      &__value {
+        color: #4f4f4f;
+      }
+    }
+  }
+  &__price {
+    font-size: 20px;
+    font-family: 'Proxima Nova Semibold';
+  }
+  &__bonus {
+    margin: 5px 0 15px 0;
+    color: $blue-light;
+    font-size: 10px;
+  }
+  &__footer {
+    display: flex;
+    .card-item__wrapper {
+      width: 60px;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

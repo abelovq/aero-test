@@ -1,0 +1,20 @@
+@import '../../sass/variables.scss';
+
+.btn-buy {
+  width: 99.7px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: $blue;
+  color: $white;
+  font-family: 'Proxima Nova Regular';
+  font-size: 14px;
+  cursor: pointer;
+  &:hover {
+    background-color: $blue-dark;
+  }
+  &__image {
+    margin: 4px 10px 3px 10px;
+  }
+}

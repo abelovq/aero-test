@@ -1,0 +1,15 @@
+@import '../../../sass/variables.scss';
+label {
+  display: flex;
+  align-items: center;
+  .checkbox {
+    &__title {
+      margin-left: 10px;
+      width: 42px;
+      display: inline-block;
+      &--isChecked {
+        color: $blue-light;
+      }
+    }
+  }
+}
