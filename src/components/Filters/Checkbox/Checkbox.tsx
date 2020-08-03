@@ -29,4 +29,4 @@ const Checkbox: React.FC<CheckBox> = ({ title, id, isChecked }) => {
   );
 };
 
-export default Checkbox;
+export default React.memo(Checkbox);

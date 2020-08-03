@@ -80,4 +80,4 @@ const Favourite: React.FC<Props> = ({ inFav, handleToggleFav, id }) => {
   );
 };
 
-export default Favourite;
+export default React.memo(Favourite);

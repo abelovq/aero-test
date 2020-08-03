@@ -11,4 +11,4 @@ const Rating: React.FC = () => {
   return <div className="rating-block">{stars()}</div>;
 };
 
-export default Rating;
+export default React.memo(Rating);

@@ -36,4 +36,4 @@ const Libra: React.FC = () => {
   );
 };
 
-export default Libra;
+export default React.memo(Libra);

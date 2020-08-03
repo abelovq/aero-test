@@ -31,4 +31,4 @@ const Check: React.FC = () => {
   );
 };
 
-export default Check;
+export default React.memo(Check);

@@ -70,4 +70,4 @@ const Card: React.FC<Product> = ({
   );
 };
 
-export default Card;
+export default React.memo(Card);

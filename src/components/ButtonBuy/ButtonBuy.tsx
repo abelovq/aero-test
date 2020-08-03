@@ -15,4 +15,4 @@ const ButtonBuy: React.FC = () => {
   );
 };
 
-export default ButtonBuy;
+export default React.memo(ButtonBuy);
