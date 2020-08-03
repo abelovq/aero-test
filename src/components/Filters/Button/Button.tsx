@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { State } from '../../../store/reducer';
+import { useDispatch } from 'react-redux';
 import { cleanAllFilters } from '../../../store/actions';
 
 import './Button.scss';
@@ -10,9 +9,15 @@ interface Props {
   className?: string;
   cleanAllFilters?: boolean;
   handleFilterApply?: () => void;
+  disabled?: boolean;
 }
 
-const Button: React.FC<Props> = ({ title, className, handleFilterApply }) => {
+const Button: React.FC<Props> = ({
+  title,
+  className,
+  handleFilterApply,
+  disabled,
+}) => {
   let classes = '';
   if (className) {
     classes += className;
@@ -27,6 +32,7 @@ const Button: React.FC<Props> = ({ title, className, handleFilterApply }) => {
     <button
       onClick={handleFilterApply ? handleFilterApply : handleCleanAllFilters}
       className={classes}
+      disabled={disabled}
     >
       {title}
     </button>

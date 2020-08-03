@@ -5,9 +5,8 @@ import { ButtonBuy } from '../ButtonBuy';
 import { Favourite } from '../Favourite';
 import { Libra } from '../Libra';
 
-import { Product, toggleFavFail } from '../../store/actions';
+import { Product, toggleFavSucess } from '../../store/actions';
 import image from '../../assets/image.jpg';
-import libra from '../../assets/libra.png';
 
 import './Card.scss';
 import { Check } from '../Check';
@@ -23,12 +22,14 @@ const Card: React.FC<Product> = ({
   id,
   fetchItems,
 }) => {
+  const dispatch = useDispatch();
   const handleToggleFav = async (id: number) => {
     const params: any = {
       id,
     };
     await fetch(apiUrl, params);
-    await fetchItems();
+    // await fetchItems();
+    dispatch(toggleFavSucess(id));
   };
   return (
     <div className="card-item">

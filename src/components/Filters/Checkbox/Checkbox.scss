@@ -2,14 +2,43 @@
 label {
   display: flex;
   align-items: center;
+  position: relative;
   .checkbox {
+    display: none;
+    &:checked ~ .fake-checkbox {
+      background-color: $blue-light;
+      border: none;
+      box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.32);
+      &::after {
+        display: block;
+        left: 2px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-width: 0 3px 3px 0;
+        background-image: url('../../../assets/cb-active.svg');
+      }
+    }
     &__title {
       margin-left: 10px;
       width: 42px;
+      font-family: 'Proxima Nova Light';
       display: inline-block;
       &--isChecked {
         color: $blue-light;
       }
+    }
+  }
+  .fake-checkbox {
+    width: 14px;
+    height: 14px;
+    display: block;
+    border: 1px solid #d7d7d7;
+    box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.07);
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
     }
   }
 }

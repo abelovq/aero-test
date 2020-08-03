@@ -3,6 +3,7 @@ import {
   FETCH_ITEMS_SUCCESS,
   FETCH_ITEMS_FAIL,
   TOGGLE_CHECKBOX,
+  TOGGLE_FAV_SUCCESS,
   ADD_TO_SELECTED,
   CLEAN_ALL_FILTERS,
 } from './constants';
@@ -46,7 +47,7 @@ const initState: State = {
 export default (state: State = initState, action: any) => {
   switch (action.type) {
     case FETCH_ITEMS_START:
-      return { ...state, isLoading: true, isError: null };
+      return { ...state, isLoading: true, isError: null, isLoaded: false };
     case FETCH_ITEMS_SUCCESS:
       return {
         ...state,
@@ -63,6 +64,15 @@ export default (state: State = initState, action: any) => {
           return action.payload === checkbox.id
             ? { ...checkbox, isChecked: !checkbox.isChecked }
             : checkbox;
+        }),
+      };
+    case TOGGLE_FAV_SUCCESS:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          return action.payload === item.id
+            ? { ...item, inFav: !item.inFav }
+            : item;
         }),
       };
     case ADD_TO_SELECTED:
@@ -86,6 +96,7 @@ export default (state: State = initState, action: any) => {
           ...checkbox,
           isChecked: false,
         })),
+        selectedFilters: [],
       };
     default:
       return state;

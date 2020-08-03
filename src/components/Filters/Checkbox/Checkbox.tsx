@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { CheckBox } from '../../../store/reducer';
 import { toggleCheckbox, addToSelected } from '../../../store/actions';
 
@@ -20,11 +20,10 @@ const Checkbox: React.FC<CheckBox> = ({ title, id, isChecked }) => {
       <input
         type="checkbox"
         className="checkbox"
-        data-title={title}
-        data-id={id}
         checked={isChecked}
         onChange={onChange}
       />
+      <span className="fake-checkbox"></span>
       <span className={classes}>{title}</span>
     </label>
   );

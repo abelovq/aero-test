@@ -54,13 +54,6 @@ export const toggleFavSucess = (payload: number) => {
   };
 };
 
-export const toggleFavFail = (payload: number) => {
-  return {
-    type: TOGGLE_FAV_FAIL,
-    payload,
-  };
-};
-
 export const toggleCheckbox = (payload: number) => {
   return {
     type: TOGGLE_CHECKBOX,

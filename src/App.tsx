@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchItemsStart,
@@ -20,11 +20,11 @@ const apiUrlForFilters =
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
-  const [isFilteredItemsShown, setIsFilteredItemsShown] = useState(false);
   const items = useSelector((state: State) => state.items);
   const isLoaded = useSelector((state: State) => state.isLoaded);
   const checkboxes = useSelector((state: State) => state.checkboxes);
-  const selectedFiltes = useSelector((state: State) => state.selectedFilters);
+  const selectedFilters = useSelector((state: State) => state.selectedFilters);
+  const [isFilteredItemsShown, setIsFilteredItemsShown] = useState(false);
 
   const handleFilterApply = () => {
     setIsFilteredItemsShown(!isFilteredItemsShown);
@@ -47,15 +47,16 @@ const App: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    console.log('useEffect2');
     const fetchFilteredItems = async () => {
       const params: any = {
-        filters: selectedFiltes,
+        filters: selectedFilters,
       };
+      dispatch(fetchItemsStart());
       try {
         const resp = await fetch(apiUrlForFilters, params);
         const data = await resp.json();
         dispatch(fetchItemsSuccess(data.data.products));
+        setIsFilteredItemsShown(false);
       } catch (err) {
         fetchItemsFail(err);
       }
@@ -64,24 +65,33 @@ const App: React.FC = () => {
       fetchFilteredItems();
     }
   }, [isFilteredItemsShown]);
+
   return (
     <div className="container">
       {!isLoaded ? (
         <div>Loading...</div>
       ) : (
-        <ul className="items-list">
-          {items.map((item) => (
-            <li key={item.id}>
-              <Card {...item} fetchItems={fetchItems} />
-            </li>
-          ))}
+        <>
+          <ul className="items-list">
+            {items.map((item) => (
+              <li key={item.id}>
+                <Card {...item} fetchItems={fetchItems} />
+              </li>
+            ))}
+          </ul>
           <div className="aside-block">
             <Button
               title="Показать результаты"
               className="btn btn--color-blue"
               handleFilterApply={handleFilterApply}
+              disabled={selectedFilters.length === 0}
             />
-            <Button title="Очистить фильтр" className="btn" cleanAllFilters />
+            <Button
+              title="Очистить фильтр"
+              className="btn"
+              cleanAllFilters
+              disabled={selectedFilters.length === 0}
+            />
             <p className="aside-block__checkboxes-caption">Производитель</p>
             <div className="checkboxes-block">
               <ul className="checkboxes-block__left-col">
@@ -100,7 +110,7 @@ const App: React.FC = () => {
               </ul>
             </div>
           </div>
-        </ul>
+        </>
       )}
     </div>
   );

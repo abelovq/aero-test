@@ -35,19 +35,23 @@ body {
 }
 
 .container {
+  display: flex;
   min-width: 1280px;
-  height: 630px;
+  min-height: 630px;
   margin: 0 auto;
   padding: 20px;
   background-color: $gray-light;
   .items-list {
-    list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    min-width: 954px;
+    list-style: none;
   }
   .aside-block {
     width: 308px;
     height: 380px;
     padding: 30px;
+    margin-left: auto;
     background-color: $white;
     &__checkboxes-caption {
       margin: 10px 0;
