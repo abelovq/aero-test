@@ -12,8 +12,9 @@
     justify-content: space-between;
   }
   &__number {
-    font-size: 10px;
-    opacity: 0.4;
+    color: $gray;
+    font-size: 12px;
+    font-family: 'Proxima Nova Light';
   }
   &__img {
     text-align: center;
@@ -26,6 +27,7 @@
       &--color {
         margin-left: 5px;
         font-size: 13px;
+        font-family: 'Proxima Nova Light';
         color: #32ca00;
       }
     }
